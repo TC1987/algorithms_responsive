@@ -1,0 +1,41 @@
+*,
+*::after,
+*::before {
+	padding: 0;
+	margin: 0;
+	box-sizing: inherit;
+}
+
+body {
+	box-sizing: border-box;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	background-color: blue;
+}
+
+.innerContainer {
+	flex: 1;
+	display: flex;
+	background-color: gray;
+}
+
+.error {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+}
+
+@media screen and (orientation: portrait) {
+	/* .container {
+		display: none;
+	}
+
+	.error {
+		display: flex;
+	} */
+}
