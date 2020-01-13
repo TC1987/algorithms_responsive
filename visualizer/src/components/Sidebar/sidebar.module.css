@@ -8,6 +8,17 @@
 	top: 0;
 	overflow: scroll;
 	height: 100%;
+	text-transform: uppercase;
+	letter-spacing: 1.5px;
+}
+
+.heading {
+	font-size: .9rem;
+	padding: 1em 2em;
+}
+
+.listContainer {
+	margin: 1em 0 0;
 }
 
 .list {
@@ -17,16 +28,14 @@
 .list li {
 	padding: 1em 2em;
 	transition: all .2s;
-	text-transform: uppercase;
 	font-size: .9rem;
-	letter-spacing: 1.5px;
 }
 
 .list li:not(.bold):not(.line):hover {
 	background-color: #aaa;
 }
 
-.bold, .start {
+.bold {
 	text-transform: uppercase;
 	font-weight: 700;
 }
