@@ -3,7 +3,11 @@
 	background-color: #ccc;
 	transform: translateX(-100%);
 	transition: all .1s ease-in;
-	padding: 1.5em 0;	
+	padding: 1.5em 0;
+	position: absolute;
+	top: 0;
+	overflow: scroll;
+	height: 100%;
 }
 
 .list {

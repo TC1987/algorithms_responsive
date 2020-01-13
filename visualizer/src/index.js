@@ -1,12 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
+
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+import './index.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import algorithmReducer from './reducers/algorithmReducer';
+import barsReducer from './reducers/barsReducer';
+import heightReducer from './reducers/heightReducer';
+import playbackReducer from './reducers/playbackReducer';
+import speedReducer from './reducers/speedReducer';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const reducers = combineReducers({
+	algorithm: algorithmReducer,
+	barCount: barsReducer,
+	height: heightReducer,
+	playback: playbackReducer,
+	speed: speedReducer,
+});
+
+const store = createStore(reducers);
+
+ReactDOM.render(
+	<Provider store={ store }>
+		<App />
+	</Provider>,
+	document.getElementById('root')
+);

@@ -20,7 +20,8 @@ body {
 .innerContainer {
 	flex: 1;
 	display: flex;
-	background-color: gray;
+	position: relative;
+	overflow: hidden;
 }
 
 .error {

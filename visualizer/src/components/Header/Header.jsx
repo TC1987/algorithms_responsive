@@ -13,7 +13,6 @@ const Header = () => {
 				<span className={ styles.title }><span style={{ fontWeight: '700' }}>sorting</span>visualizer</span>
 			</div>
 			<Burger style={{ fontSize: '8px' }} isOpen={ isOpen } onClick={ () => setIsOpen(!isOpen) } />
-			<button className={ styles.menubtn }></button>
 		</header>
 	)
 }
