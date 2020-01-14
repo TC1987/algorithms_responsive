@@ -4,10 +4,10 @@ import { insertionSortHelper } from './insertion_sort/insertion_sort';
 import { selectionSortHelper } from './selection_sort/selection_sort';
 import { bubbleSortHelper } from './bubble_sort/bubble_sort';
 
-export { 
-	mergeSortHelper,
-	quickSortHelper,
-	insertionSortHelper,
-	selectionSortHelper,
-	bubbleSortHelper
+export default { 
+	merge_sort: mergeSortHelper,
+	quick_sort: quickSortHelper,
+	insertion_sort: insertionSortHelper,
+	selection_sort: selectionSortHelper,
+	bubble_sort: bubbleSortHelper
 }

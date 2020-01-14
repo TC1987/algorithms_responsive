@@ -25,7 +25,7 @@ export const bubbleSort = arr => {
 	return animations;
 }
 
-export const bubbleSortHelper = (arr, primary, secondary) => {
+export const bubbleSortHelper = (arr, primary, secondary, speed) => {
 	const animations = bubbleSort(arr);
 	const arrayBars = document.getElementsByClassName('arrayBar');
 
@@ -40,7 +40,7 @@ export const bubbleSortHelper = (arr, primary, secondary) => {
 			setTimeout(() => {
 				barOneStyle.backgroundColor = color;
 				barTwoStyle.backgroundColor = color;
-			}, i * 10);
+			}, i * speed);
 		} else {
 			setTimeout(() => {
 				const [barOneIdx, newOneHeight, barTwoIdx, newTwoHeight] = animations[i];
@@ -48,7 +48,7 @@ export const bubbleSortHelper = (arr, primary, secondary) => {
 				const barTwoStyle = arrayBars[barTwoIdx].style;
 				barOneStyle.height = `${ newOneHeight }px`;
 				barTwoStyle.height = `${ newTwoHeight }px`;
-			}, i * 10);
+			}, i * speed);
 		}
 	}
 }
