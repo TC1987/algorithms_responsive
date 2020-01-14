@@ -2,14 +2,14 @@ const DEFAULT_PLAYBACK = false;
 
 export const updatePlayback = payload => {
 	return {
-		type: 'UPDATE',
+		type: 'UPDATE_PLAYBACK',
 		payload
 	}
 }
 
 export default (state = DEFAULT_PLAYBACK, action) => {
 	switch (action.type) {
-		case 'UPDATE':
+		case 'UPDATE_PLAYBACK':
 			return action.payload;
 		default:
 			return state;

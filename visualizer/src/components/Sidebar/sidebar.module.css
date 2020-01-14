@@ -1,5 +1,5 @@
 .sidebar {
-	width: 240px;
+	width: 220px;
 	background-color: #ccc;
 	transform: translateX(-100%);
 	transition: all .1s ease-in;
@@ -29,6 +29,7 @@
 	padding: 1em 2em;
 	transition: all .2s;
 	font-size: .9rem;
+	cursor: pointer;
 }
 
 .list li:not(.bold):not(.line):hover {
@@ -40,7 +41,7 @@
 	font-weight: 700;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 640px) {
 	.sidebar {
 		transform: translateX(0);
 	}

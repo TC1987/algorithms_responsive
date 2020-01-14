@@ -1,6 +1,6 @@
 const DEFAULT_HEIGHTS = {
 	min: 5,
-	max: 400
+	max: 500
 };
 
 export const updateMin = height => {

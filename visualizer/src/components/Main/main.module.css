@@ -1,4 +1,27 @@
 .main {
+	position: absolute;
+	left: 220px;
+	top: 0;
+	width: calc(100% - 220px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}
+
+.main .left {
+	left: 220px;
+}
+
+.arrayContainer {
+	width: 85%;
+	display: flex;
+	align-items: center;
+}
+
+.arrayBar {
 	flex: 1;
-	background-color: red;
+	align-self: baseline;
+	background-color: pink;
+	margin: 0 1px;
 }

@@ -1,15 +1,15 @@
-const DEFAULT_COUNT = 100;
+const DEFAULT_COUNT = 10;
 
-export const updateBarsCount = payload => {
+export const updateBarCount = payload => {
 	return {
-		type: 'UPDATE',
+		type: 'UPDATE_BAR_COUNT',
 		payload
 	}
 }
 
 export default (state = DEFAULT_COUNT, action) => {
 	switch (action.type) {
-		case 'UPDATE':
+		case 'UPDATE_BAR_COUNT':
 			return action.payload;
 		default:
 			return state;

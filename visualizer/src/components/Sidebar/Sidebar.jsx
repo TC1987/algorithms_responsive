@@ -12,7 +12,7 @@ export default () => {
 			<ul className={ styles.list }>
 				<Algorithms list={ styles.list } heading={ styles.heading } />
 				<Settings listContainer={ styles.listContainer } list={ styles.list } heading={ styles.heading } bold={ styles.bold } />
-				<Playback listContainer={ styles.listContainer } list={ styles.list } />
+				<Playback listContainer={ styles.listContainer } list={ styles.list } heading={ styles.heading } />
 			</ul>
 		</div>
 	)

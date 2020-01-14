@@ -8,15 +8,17 @@ import './index.css';
 
 import algorithmReducer from './reducers/algorithmReducer';
 import barsReducer from './reducers/barsReducer';
-import heightReducer from './reducers/heightReducer';
+import heightsReducer from './reducers/heightsReducer';
 import playbackReducer from './reducers/playbackReducer';
+import sidebarReducer from './reducers/sidebarReducer';
 import speedReducer from './reducers/speedReducer';
 
 const reducers = combineReducers({
 	algorithm: algorithmReducer,
 	barCount: barsReducer,
-	height: heightReducer,
+	heights: heightsReducer,
 	playback: playbackReducer,
+	sidebarOpen: sidebarReducer, 
 	speed: speedReducer,
 });
 
