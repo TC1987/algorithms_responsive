@@ -2,29 +2,29 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import styles from './main.module.css';
-import { mergeSortHelper, quickSortHelper, insertionSortHelper, selectionSortHelper, bubbleSortHelper } from '../../algorithms';
-import { randomIntFromRange } from '../../utils/array_helpers';
+import { generateNumbersArray } from '../../utils/array_helpers';
+
+import { bubbleSortHelper, bubbleSort } from '../../algorithms/bubble_sort/bubble_sort';
 
 const Main = props => {
 	const [numbersArray, setNumbersArray] = useState([]);
 
 	useEffect(() => {
-		const nums = [];
-
-		for (let i = 0; i < props.barCount; i++) {
-			nums.push(randomIntFromRange(props.heights.min, props.heights.max));
-		}
-
-		Object.freeze(nums);
-		setNumbersArray(nums);
+		const numbers = generateNumbersArray(props.barCount, props.heights.min, props.heights.max);
+		setNumbersArray(numbers);
 	}, [props.barCount])
+
+	useEffect(() => {
+		console.log(props.isRunning);
+		bubbleSortHelper([...numbersArray], 'black', 'red');
+	}, [props.isRunning]);
 
 	return (
 		<main className={ styles.main }>
 			<div className={ styles.arrayContainer }>
 				{ numbersArray.map((value, idx) => (
 					<div
-						className={ styles.arrayBar }
+						className='arrayBar'
 						key={ idx }
 						style={{ height: `${value}px` }}
 					>
@@ -38,7 +38,9 @@ const Main = props => {
 const mapStateToProps = state => {
 	return {
 		barCount: state.barCount,
-		heights: state.heights
+		heights: state.heights,
+		isRunning: state.isRunning,
+		algorithm: state.algorithm		
 	}
 }
 

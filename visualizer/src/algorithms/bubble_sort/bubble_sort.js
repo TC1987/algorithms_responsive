@@ -1,4 +1,4 @@
-export const bubbleSortHelper = arr => {
+export const bubbleSort = arr => {
 	if (arr.length <= 1) {
 		return arr;
 	}
@@ -23,4 +23,32 @@ export const bubbleSortHelper = arr => {
 	}
 
 	return animations;
+}
+
+export const bubbleSortHelper = (arr, primary, secondary) => {
+	const animations = bubbleSort(arr);
+	const arrayBars = document.getElementsByClassName('arrayBar');
+
+	for (let i = 0; i < animations.length; i++) {
+		const isColorChange = (i % 3 === 0) || (i % 3 === 2);
+
+		if (isColorChange) {
+			const [barOneIdx, barTwoIdx] = animations[i];
+			const barOneStyle = arrayBars[barOneIdx].style;
+			const barTwoStyle = arrayBars[barTwoIdx].style;
+			const color = i % 3 === 0 ? secondary : primary;
+			setTimeout(() => {
+				barOneStyle.backgroundColor = color;
+				barTwoStyle.backgroundColor = color;
+			}, i * 10);
+		} else {
+			setTimeout(() => {
+				const [barOneIdx, newOneHeight, barTwoIdx, newTwoHeight] = animations[i];
+				const barOneStyle = arrayBars[barOneIdx].style;
+				const barTwoStyle = arrayBars[barTwoIdx].style;
+				barOneStyle.height = `${ newOneHeight }px`;
+				barTwoStyle.height = `${ newTwoHeight }px`;
+			}, i * 10);
+		}
+	}
 }

@@ -8,6 +8,7 @@ import './index.css';
 
 import algorithmReducer from './reducers/algorithmReducer';
 import barsReducer from './reducers/barsReducer';
+import colorsReducer from './reducers/colorsReducer';
 import heightsReducer from './reducers/heightsReducer';
 import playbackReducer from './reducers/playbackReducer';
 import sidebarReducer from './reducers/sidebarReducer';
@@ -16,8 +17,9 @@ import speedReducer from './reducers/speedReducer';
 const reducers = combineReducers({
 	algorithm: algorithmReducer,
 	barCount: barsReducer,
+	colors: colorsReducer,
 	heights: heightsReducer,
-	playback: playbackReducer,
+	isRunning: playbackReducer,
 	sidebarOpen: sidebarReducer, 
 	speed: speedReducer,
 });

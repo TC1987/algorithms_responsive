@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { updateAlgorithm } from '../../../reducers/algorithmReducer';
 import styles from './algorithms.module.css';
 
+// import an object with key being the algo name and value being the actual algo
 const algorithms = ['Quick Sort', 'Merge Sort', 'Insertion Sort', 'Selection Sort', 'Bubble Sort'];
 
 const Algorithms = props => {
@@ -15,7 +16,7 @@ const Algorithms = props => {
 					<li 
 						key={ algorithm }
 						className={ algorithm === props.selected ? styles.selected : '' }
-						onClick={ () => props.update(algorithm) }
+						onClick={ () => props.updateAlgorithm(algorithm) }
 					>
 						{ algorithm }
 					</li>
@@ -32,7 +33,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-	update: updateAlgorithm
+	updateAlgorithm
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Algorithms);

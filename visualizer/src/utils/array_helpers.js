@@ -1,15 +1,16 @@
-export const generateNumbers = (count, min, max) => {
+export const randomIntFromRange = (min, max) => {
+	return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+export const generateNumbersArray = (count, min, max) => {
 	const numbers = [];
-		
+
 	for (let i = 0; i < count; i++) {
 		numbers.push(randomIntFromRange(min, max));
 	}
 
+	Object.freeze(numbers);
 	return numbers;
-}
-
-export const randomIntFromRange = (min, max) => {
-	return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 export const compareArrays = (arr1, arr2) => {

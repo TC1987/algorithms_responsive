@@ -1,16 +1,13 @@
-const DEFAULT_PLAYBACK = false;
+const DEFAULT_RUNNING = false;
 
-export const updatePlayback = payload => {
-	return {
-		type: 'UPDATE_PLAYBACK',
-		payload
-	}
-}
+export const updatePlayback = _ => ({
+	type: 'IS_RUNNING'
+})
 
-export default (state = DEFAULT_PLAYBACK, action) => {
+export default (state = DEFAULT_RUNNING, action) => {
 	switch (action.type) {
-		case 'UPDATE_PLAYBACK':
-			return action.payload;
+		case 'IS_RUNNING':
+			return !state;
 		default:
 			return state;
 	}
