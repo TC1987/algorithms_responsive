@@ -1,26 +1,45 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
-
 import styles from './sidebar.module.css';
 
 import Algorithms from './Algorithms/Algorithms';
 import Settings from './Settings/Settings';
 import Playback from './Playback/Playback';
 
-const Sidebar = ({ isOpen }) => {
+// MAKE SOME OF THE STYLE PROPS GLOBAL (LOCAL?) SO WE DON'T NEED TO PASS INTO COMPONENTS.
+const Sidebar = ({ speed, setSpeed, barCount, setBarCount, minHeight, setMinHeight, maxHeight, setMaxHeight, algorithm, setAlgorithm, runAlgorithm }) => {
 	return (
-		<div className={ `${ styles.sidebar } ${ isOpen ? styles.isOpen : '' }` }>
+		<div className={ `${ styles.sidebar } ${ styles.isOpen }` }>
 			<ul className={ styles.list }>
-				<Algorithms list={ styles.list } heading={ styles.heading } />
-				<Settings listContainer={ styles.listContainer } list={ styles.list } heading={ styles.heading } bold={ styles.bold } />
-				<Playback listContainer={ styles.listContainer } list={ styles.list } heading={ styles.heading } />
+				<Algorithms
+					list={ styles.list }
+					heading={ styles.heading }
+					algorithm={ algorithm }
+					setAlgorithm={ setAlgorithm }
+				/>
+				<Settings
+					listContainer={ styles.listContainer }
+					list={ styles.list }
+					heading={ styles.heading }
+					bold={ styles.bold }
+					speed={ speed }
+					setSpeed={ setSpeed }
+					barCount={ barCount }
+					setBarCount={ setBarCount }
+					minHeight={ minHeight }
+					setMinHeight={ setMinHeight }
+					maxHeight={ maxHeight }
+					setMaxHeight={ setMaxHeight }
+				/>
+				<Playback
+					listContainer={ styles.listContainer }
+					list={ styles.list }
+					heading={ styles.heading }
+					algorithm={ algorithm }
+					runAlgorithm={ runAlgorithm }
+				/>
 			</ul>
 		</div>
 	)
 }
 
-const mapStateToProps = state => ({
-	isOpen: state.sidebarOpen
-})
-
-export default connect(mapStateToProps)(Sidebar);
+export default Sidebar;

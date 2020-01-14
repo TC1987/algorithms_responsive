@@ -1,9 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
-
-import { updateAlgorithm } from '../../../reducers/algorithmReducer';
 import styles from './algorithms.module.css';
-
 import algorithms from '../../../algorithms';
 
 const Algorithms = props => {
@@ -14,8 +10,8 @@ const Algorithms = props => {
 				{ Object.keys(algorithms).map(algorithm => (
 					<li 
 						key={ algorithm }
-						className={ algorithm === props.selected ? styles.selected : '' }
-						onClick={ () => props.updateAlgorithm(algorithm) }
+						className={ algorithm === props.algorithm ? styles.selected : '' }
+						onClick={ () => props.setAlgorithm(algorithm) }
 					>
 						{ algorithm.split('_').join(' ') }
 					</li>
@@ -25,14 +21,4 @@ const Algorithms = props => {
 	)
 }
 
-const mapStateToProps = state => {
-	return {
-		selected: state.algorithm
-	}
-}
-
-const mapDispatchToProps = {
-	updateAlgorithm
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Algorithms);
+export default Algorithms;

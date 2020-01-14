@@ -16,12 +16,12 @@ body {
 	min-height: 100vh;
 }
 
-.innerContainer {
+/* .innerContainer {
 	flex: 1;
 	display: flex;
 	position: relative;
 	overflow: hidden;
-}
+} */
 
 .error {
 	display: none;
