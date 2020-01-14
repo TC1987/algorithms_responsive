@@ -12,3 +12,9 @@
 	text-transform: uppercase;
 	letter-spacing: 1.5px;
 }
+
+@media all and (min-width: 640px) {
+	.menu {
+		display: none;
+	}
+}

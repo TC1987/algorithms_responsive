@@ -17,7 +17,7 @@ const Main = props => {
 
 		Object.freeze(nums);
 		setNumbersArray(nums);
-	}, [])
+	}, [props.barCount])
 
 	return (
 		<main className={ styles.main }>

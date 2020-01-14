@@ -1,20 +1,18 @@
 .main {
 	position: absolute;
-	left: 220px;
+	z-index: -1;
+	left: 0;
 	top: 0;
-	width: calc(100% - 220px);
+	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	height: 100%;
 }
 
-.main .left {
-	left: 220px;
-}
-
 .arrayContainer {
-	width: 85%;
+	width: 100%;
+	padding: 0 2em;
 	display: flex;
 	align-items: center;
 }
@@ -24,4 +22,11 @@
 	align-self: baseline;
 	background-color: pink;
 	margin: 0 1px;
+}
+
+@media all and (min-width: 640px) {
+	.main {
+		left: 220px;
+		width: calc(100% - 220px);
+	}
 }

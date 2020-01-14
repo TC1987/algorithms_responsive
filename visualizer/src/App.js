@@ -16,7 +16,7 @@ function App() {
 					<Sidebar />
 					<Main />
 				</div>
-				<Footer />
+				{/* <Footer /> */}
 			</div>
 			<div className={ styles.error }>Please rotate device to landscape.</div>
 		</React.Fragment>

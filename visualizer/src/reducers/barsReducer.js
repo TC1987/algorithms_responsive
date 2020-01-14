@@ -1,4 +1,4 @@
-const DEFAULT_COUNT = 10;
+const DEFAULT_COUNT = 20;
 
 export const updateBarCount = payload => {
 	return {

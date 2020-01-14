@@ -12,7 +12,7 @@ const Header = ({ isOpen, sidebarToggle }) => {
 			<div className={ styles.logo }>
 				<span className={ styles.title }><span style={{ fontWeight: '700' }}>sorting</span>visualizer</span>
 			</div>
-			<Burger style={{ fontSize: '8px' }} isOpen={ isOpen } onClick={ sidebarToggle } />
+			<Burger style={{ fontSize: '8px' }} isOpen={ isOpen } onClick={ sidebarToggle } className={ styles.menu } />
 		</header>
 	)
 }

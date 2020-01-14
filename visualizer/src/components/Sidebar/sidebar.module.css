@@ -12,6 +12,10 @@
 	letter-spacing: 1.5px;
 }
 
+.sidebar.isOpen {
+	transform: translateX(0);
+}
+
 .heading {
 	font-size: .9rem;
 	padding: 1em 2em;
