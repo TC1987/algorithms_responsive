@@ -6,20 +6,22 @@ export const selectionSortHelper = arr => {
 
 	for (i = 0; i < arr.length; i++) {
 		smallestIdx = i;
-		animations.push([i, 'starting']);
+		animations.push([[i], 'CHANGE_ONE_SECONDARY']);
 		for (j = i + 1; j < arr.length; j++) {
-			animations.push([j, 'current']);
-			animations.push([j, 'currentRevert']);
+			animations.push([[j], 'CHANGE_ONE_SECONDARY']);
 			if (arr[j] < arr[smallestIdx]) {
+				animations.push([[smallestIdx], 'CHANGE_ONE_PRIMARY']);
 				smallestIdx = j;
+				animations.push([[smallestIdx], 'CHANGE_ONE_SECONDARY']);
+			} else {
+				animations.push([[j], 'CHANGE_ONE_PRIMARY']);
 			}
 		}
-		animations.push([smallestIdx, 'smallest']);
 		temp = arr[i];
 		arr[i] = arr[smallestIdx];
 		arr[smallestIdx] = temp;
-		animations.push([[i, arr[i], smallestIdx, temp], 'update']);
-		animations.push([[i, smallestIdx], 'revert']);
+		animations.push([[i, smallestIdx, arr[i], temp], 'SWAP_HEIGHTS']);
+		animations.push([[i, smallestIdx], 'CHANGE_TWO_PRIMARY']);
 	}
 
 	return animations;

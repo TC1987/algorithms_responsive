@@ -10,28 +10,28 @@ const partition = (arr, left, right, animations) => {
 	let i = left;
 	let temp;
 
-	animations.push([i, 'starting']);
-	animations.push([right, 'starting']);
+	animations.push([[i, right], 'CHANGE_TWO_SECONDARY']);
 
 	while (left <= right - 1) {
-		animations.push([left, 'current']);
+		animations.push([[left], 'CHANGE_ONE_SECONDARY']);
 		if (arr[left] <= pivot) {
 			temp = arr[i];
 			arr[i] = arr[left];
 			arr[left] = temp;
-			animations.push([[i, arr[i], left, temp], 'heightChange']);
-			animations.push([i, 'revert']);
+			animations.push([[i, left, arr[i], arr[left]], 'SWAP_HEIGHTS']);
+			animations.push([[i, left], 'CHANGE_TWO_PRIMARY']);
 			i++;
+			animations.push([[i], 'CHANGE_ONE_SECONDARY']);
+		} else {
+			animations.push([[left], 'CHANGE_ONE_PRIMARY']);
 		}
-		animations.push([left, 'revert']);
 		left++;
 	}
-	animations.push([right, 'revert']);
 	temp = arr[i];
 	arr[i] = arr[left];
 	arr[left] = temp;
-	animations.push([[i, arr[i], left, temp], 'heightChange']);
-	animations.push([[i, pivot], 'revertTwo']);
+	animations.push([[i, left, arr[i], temp], 'SWAP_HEIGHTS']);
+	animations.push([[i, left], 'CHANGE_TWO_PRIMARY']);
 	return i;
 }
 
@@ -52,6 +52,5 @@ export const quickSortHelper = arr => {
 
 	quickSort(arr, 0, arr.length - 1, animations);
 
-	console.log(arr);
 	return animations;
 }

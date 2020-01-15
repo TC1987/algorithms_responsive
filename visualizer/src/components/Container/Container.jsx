@@ -14,9 +14,19 @@ export const processAnimations = (animations, PRIMARY, SECONDARY, SPEED) => {
 		const [data, action] = animations[i];
 		const [barOneIndex, barTwoIndex] = data;
 		const barOneStyles = arrayBars[barOneIndex].style;
-		const barTwoStyles = arrayBars[barTwoIndex].style;
+		const barTwoStyles = barTwoIndex >= 0 ? arrayBars[barTwoIndex].style : null;
 
 		switch (action) {
+			case 'CHANGE_ONE_PRIMARY':
+				setTimeout(() => {
+					barOneStyles.backgroundColor = PRIMARY;
+				}, i * SPEED);
+				break;
+			case 'CHANGE_ONE_SECONDARY':
+				setTimeout(() => {
+					barOneStyles.backgroundColor = SECONDARY;
+				}, i * SPEED);
+				break;
 			case 'CHANGE_TWO_PRIMARY':
 				setTimeout(() => {
 					barOneStyles.backgroundColor = PRIMARY;
@@ -27,6 +37,11 @@ export const processAnimations = (animations, PRIMARY, SECONDARY, SPEED) => {
 				setTimeout(() => {
 					barOneStyles.backgroundColor = SECONDARY;
 					barTwoStyles.backgroundColor = SECONDARY;
+				}, i * SPEED);
+				break;
+			case 'CHANGE_HEIGHT':
+				setTimeout(() => {
+					barOneStyles.height = `${data[2]}px`;
 				}, i * SPEED);
 				break;
 			case 'SWAP_HEIGHTS':
@@ -44,7 +59,7 @@ export const processAnimations = (animations, PRIMARY, SECONDARY, SPEED) => {
 export default () => {
 	const [algorithm, setAlgorithm] = useState('');
 	const [speed, setSpeed] = useState(5);
-	const [barCount, setBarCount] = useState(200);
+	const [barCount, setBarCount] = useState(100);
 	const [minHeight, setMinHeight] = useState(5);
 	const [maxHeight, setMaxHeight] = useState(400);
 	const [running, setRunning] = useState(false);
@@ -57,9 +72,20 @@ export default () => {
 		}
 	}
 
-	useEffect(() => {
+	const resetNumbers = () => {
+		const arrayBars = document.getElementsByClassName('arrayBar');
+		for (let i = 0; i < arrayBars.length; i++) {
+			arrayBars[i].style.height = `${numbersArray[i]}px`;
+		}
+	}
+
+	const newNumbers = () => {
 		const numbers = generateNumbersArray(barCount, minHeight, maxHeight);
 		setNumbersArray(numbers);
+	}
+
+	useEffect(() => {
+		newNumbers();
 	}, [barCount, minHeight, maxHeight]);
 
 	return (
@@ -76,6 +102,8 @@ export default () => {
 				algorithm={algorithm}
 				setAlgorithm={setAlgorithm}
 				runAlgorithm={runAlgorithm}
+				newNumbers={newNumbers}
+				resetNumbers={resetNumbers}
 			/>
 			<Main numbersArray={numbersArray} />
 		</div>
