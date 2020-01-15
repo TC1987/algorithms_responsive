@@ -6,9 +6,9 @@ import Settings from './Settings/Settings';
 import Playback from './Playback/Playback';
 
 // MAKE SOME OF THE STYLE PROPS GLOBAL (LOCAL?) SO WE DON'T NEED TO PASS INTO COMPONENTS.
-const Sidebar = ({ speed, setSpeed, barCount, setBarCount, minHeight, setMinHeight, maxHeight, setMaxHeight, algorithm, setAlgorithm, runAlgorithm, newNumbers, resetNumbers }) => {
+const Sidebar = ({ sidebarOpen, speed, setSpeed, barCount, setBarCount, minHeight, setMinHeight, maxHeight, setMaxHeight, algorithm, setAlgorithm, runAlgorithm, newNumbers, resetNumbers }) => {
 	return (
-		<div className={`${styles.sidebar} ${styles.isOpen}`}>
+		<div className={`${styles.sidebar} ${sidebarOpen ? styles.isOpen : ''}`}>
 			<ul className={styles.list}>
 				<Algorithms
 					list={styles.list}

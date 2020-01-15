@@ -56,7 +56,7 @@ export const processAnimations = (animations, PRIMARY, SECONDARY, SPEED) => {
 	}
 }
 
-export default () => {
+export default ({ sidebarOpen }) => {
 	const [algorithm, setAlgorithm] = useState('');
 	const [speed, setSpeed] = useState(5);
 	const [barCount, setBarCount] = useState(100);
@@ -91,6 +91,7 @@ export default () => {
 	return (
 		<div className={styles.innerContainer}>
 			<Sidebar
+				sidebarOpen={sidebarOpen}
 				speed={speed}
 				setSpeed={setSpeed}
 				barCount={barCount}
