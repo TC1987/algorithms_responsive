@@ -7,6 +7,40 @@ import styles from './container.module.css';
 import { generateNumbersArray } from '../../utils/array_helpers';
 import algorithms from '../../algorithms';
 
+export const processAnimations = (animations, PRIMARY, SECONDARY, SPEED) => {
+	const arrayBars = document.getElementsByClassName('arrayBar');
+
+	for (let i = 0; i < animations.length; i++) {
+		const [data, action] = animations[i];
+		const [barOneIndex, barTwoIndex] = data;
+		const barOneStyles = arrayBars[barOneIndex].style;
+		const barTwoStyles = arrayBars[barTwoIndex].style;
+
+		switch (action) {
+			case 'CHANGE_TWO_PRIMARY':
+				setTimeout(() => {
+					barOneStyles.backgroundColor = PRIMARY;
+					barTwoStyles.backgroundColor = PRIMARY;
+				}, i * SPEED);
+				break;
+			case 'CHANGE_TWO_SECONDARY':
+				setTimeout(() => {
+					barOneStyles.backgroundColor = SECONDARY;
+					barTwoStyles.backgroundColor = SECONDARY;
+				}, i * SPEED);
+				break;
+			case 'SWAP_HEIGHTS':
+				setTimeout(() => {
+					barOneStyles.height = `${data[2]}px`;
+					barTwoStyles.height = `${data[3]}px`;
+				}, i * SPEED);
+				break;
+			default:
+				break;
+		}
+	}
+}
+
 export default () => {
 	const [algorithm, setAlgorithm] = useState('');
 	const [speed, setSpeed] = useState(5);
@@ -18,7 +52,8 @@ export default () => {
 
 	const runAlgorithm = () => {
 		if (algorithm) {
-			algorithms[algorithm]([...numbersArray], minHeight, maxHeight, speed);
+			const animations = algorithms[algorithm]([...numbersArray]);
+			processAnimations(animations, 'pink', 'red', speed);
 		}
 	}
 
@@ -28,21 +63,21 @@ export default () => {
 	}, [barCount, minHeight, maxHeight]);
 
 	return (
-		<div className={ styles.innerContainer }>
+		<div className={styles.innerContainer}>
 			<Sidebar
-				speed={ speed }
-				setSpeed={ setSpeed }
-				barCount={ barCount }
-				setBarCount = { setBarCount }
-				minHeight={ minHeight }
-				setMinHeight={ setMinHeight }
-				maxHeight={ maxHeight }
-				setMaxHeight={ setMaxHeight }
-				algorithm={ algorithm }
-				setAlgorithm={ setAlgorithm }
-				runAlgorithm={ runAlgorithm }
+				speed={speed}
+				setSpeed={setSpeed}
+				barCount={barCount}
+				setBarCount={setBarCount}
+				minHeight={minHeight}
+				setMinHeight={setMinHeight}
+				maxHeight={maxHeight}
+				setMaxHeight={setMaxHeight}
+				algorithm={algorithm}
+				setAlgorithm={setAlgorithm}
+				runAlgorithm={runAlgorithm}
 			/>
-			<Main numbersArray={ numbersArray } />
+			<Main numbersArray={numbersArray} />
 		</div>
 	)
 }
