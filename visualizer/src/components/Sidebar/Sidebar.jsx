@@ -16,6 +16,15 @@ const Sidebar = ({ sidebarOpen, speed, setSpeed, barCount, setBarCount, minHeigh
 					algorithm={algorithm}
 					setAlgorithm={setAlgorithm}
 				/>
+				<Playback
+					listContainer={styles.listContainer}
+					list={styles.list}
+					heading={styles.heading}
+					algorithm={algorithm}
+					runAlgorithm={runAlgorithm}
+					newNumbers={newNumbers}
+					resetNumbers={resetNumbers}
+				/>
 				<Settings
 					listContainer={styles.listContainer}
 					list={styles.list}
@@ -29,15 +38,6 @@ const Sidebar = ({ sidebarOpen, speed, setSpeed, barCount, setBarCount, minHeigh
 					setMinHeight={setMinHeight}
 					maxHeight={maxHeight}
 					setMaxHeight={setMaxHeight}
-				/>
-				<Playback
-					listContainer={styles.listContainer}
-					list={styles.list}
-					heading={styles.heading}
-					algorithm={algorithm}
-					runAlgorithm={runAlgorithm}
-					newNumbers={newNumbers}
-					resetNumbers={resetNumbers}
 				/>
 			</ul>
 		</div>
