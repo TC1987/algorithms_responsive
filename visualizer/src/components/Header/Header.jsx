@@ -7,7 +7,7 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
 	return (
 		<header className={styles.header}>
 			<div className={styles.logo}>
-				<span className={styles.title}><span style={{ fontWeight: '700' }}>sorting</span>inaction</span>
+				<span className={styles.title}><span style={{ fontWeight: '800' }}>sorting</span>inaction</span>
 			</div>
 			<Burger style={{ fontSize: '8px' }} isOpen={sidebarOpen} className={styles.menu} onClick={() => setSidebarOpen(state => !state)} />
 		</header>
