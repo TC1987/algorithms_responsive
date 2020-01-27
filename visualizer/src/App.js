@@ -14,7 +14,7 @@ function App() {
 		<React.Fragment>
 			<div className={styles.container}>
 				<Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-				<Container sidebarOpen={sidebarOpen} />
+				<Container sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
 			</div>
 			<div className={styles.error}>Please rotate device to landscape.</div>
 		</React.Fragment>

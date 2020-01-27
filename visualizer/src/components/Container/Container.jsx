@@ -56,7 +56,7 @@ export const processAnimations = (animations, PRIMARY, SECONDARY, SPEED) => {
 	}
 }
 
-export default ({ sidebarOpen }) => {
+export default ({ sidebarOpen, setSidebarOpen }) => {
 	const [algorithm, setAlgorithm] = useState('');
 	const [speed, setSpeed] = useState(5);
 	const [barCount, setBarCount] = useState(100);
@@ -70,6 +70,7 @@ export default ({ sidebarOpen }) => {
 			const animations = algorithms[algorithm]([...numbersArray]);
 			processAnimations(animations, 'pink', 'red', speed);
 		}
+		setRunning(false);
 	}
 
 	const resetNumbers = () => {
@@ -92,6 +93,7 @@ export default ({ sidebarOpen }) => {
 		<div className={styles.innerContainer}>
 			<Sidebar
 				sidebarOpen={sidebarOpen}
+				setSidebarOpen={setSidebarOpen}
 				speed={speed}
 				setSpeed={setSpeed}
 				barCount={barCount}
@@ -105,6 +107,8 @@ export default ({ sidebarOpen }) => {
 				runAlgorithm={runAlgorithm}
 				newNumbers={newNumbers}
 				resetNumbers={resetNumbers}
+				running={running}
+				setRunning={setRunning}
 			/>
 			<Main numbersArray={numbersArray} />
 		</div>

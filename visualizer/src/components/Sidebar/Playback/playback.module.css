@@ -4,5 +4,6 @@
 }
 
 .active {
-	background-color: green;
+	color: white;
+	background-color: #333;
 }

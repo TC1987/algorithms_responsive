@@ -5,12 +5,18 @@ import algorithms from '../../../algorithms';
 
 
 const Playback = props => {
+	const handleClick = () => {
+		props.setRunning(true);
+		props.setSidebarOpen()
+		props.runAlgorithm();
+	}
+
 	return (
 		<div className={props.listContainer}>
 			<ul className={props.list}>
 				<li
 					className={`${styles.start} ${props.algorithm ? styles.active : ''}`}
-					onClick={props.runAlgorithm}
+					onClick={handleClick}
 				>
 					{/* { props.isRunning ? 'Pause' : 'Start'} */}
 					Start
