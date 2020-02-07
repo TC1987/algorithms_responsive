@@ -16,6 +16,7 @@ const Settings = (props) => (
 					value={props.speed}
 					onChange={(e) => props.setSpeed(e.target.value)}
 					className={styles.input}
+					disabled={props.running}
 				/>
 			</li>
 			<li className={styles.label}>
@@ -28,6 +29,7 @@ const Settings = (props) => (
 					max="300"
 					value={props.barCount}
 					onChange={(e) => props.setBarCount(e.target.value)}
+					disabled={props.running}
 				/>
 			</li>
 			<li className={styles.label}>
@@ -40,6 +42,7 @@ const Settings = (props) => (
 					max="100"
 					value={props.minHeight}
 					onChange={(e) => props.setMinHeight(e.target.value)}
+					disabled={props.running}
 				/>
 			</li>
 			<li className={styles.label}>
@@ -52,6 +55,7 @@ const Settings = (props) => (
 					max="600"
 					value={props.maxHeight}
 					onChange={(e) => props.setMaxHeight(e.target.value)}
+					disabled={props.running}
 				/>
 			</li>
 			{/* <li>Min Height: <input type="number" className={ styles.input }></input></li> */}

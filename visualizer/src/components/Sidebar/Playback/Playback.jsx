@@ -4,14 +4,23 @@ import { generateNumbersArray } from '../../../utils/array_helpers';
 import algorithms from '../../../algorithms';
 
 const Playback = (props) => {
+	useEffect(
+		() => {
+			if (props.running) {
+				props.setSidebarOpen();
+				props.runAlgorithm();
+			}
+		},
+		[ props.running ]
+	);
+
 	const handleClick = () => {
-		if (props.running) {
+		if (!props.algorithm || props.running) {
 			return;
 		}
 
+		props.resetNumbers();
 		props.setRunning(true);
-		props.setSidebarOpen();
-		props.runAlgorithm();
 	};
 
 	return (

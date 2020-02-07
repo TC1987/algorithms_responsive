@@ -7,7 +7,7 @@ import styles from './container.module.css';
 import { generateNumbersArray } from '../../utils/array_helpers';
 import algorithms from '../../algorithms';
 
-export const processAnimations = (animations, PRIMARY, SECONDARY, SPEED, setRunning) => {
+export const processAnimations = (animations, PRIMARY, SECONDARY, SPEED) => {
 	const arrayBars = document.getElementsByClassName('arrayBar');
 
 	for (let i = 0; i < animations.length; i++) {
@@ -54,8 +54,6 @@ export const processAnimations = (animations, PRIMARY, SECONDARY, SPEED, setRunn
 				break;
 		}
 	}
-
-	setRunning(false);
 };
 
 export default ({ sidebarOpen, setSidebarOpen }) => {
@@ -67,10 +65,15 @@ export default ({ sidebarOpen, setSidebarOpen }) => {
 	const [ running, setRunning ] = useState(false);
 	const [ numbersArray, setNumbersArray ] = useState([]);
 
-	const runAlgorithm = () => {
+	const runAlgorithm = async () => {
 		if (algorithm) {
 			const animations = algorithms[algorithm]([ ...numbersArray ]);
-			processAnimations(animations, '#3EC9D3', '#D3483E', speed, setRunning);
+
+			processAnimations(animations, '#3EC9D3', '#D3483E', speed);
+			setTimeout(() => {
+				setRunning(false);
+				setAlgorithm('');
+			}, animations.length * speed);
 		}
 	};
 
