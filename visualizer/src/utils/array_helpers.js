@@ -1,6 +1,6 @@
 export const randomIntFromRange = (min, max) => {
 	return Math.floor(Math.random() * (max - min + 1) + min);
-}
+};
 
 export const generateNumbersArray = (count, min, max) => {
 	const numbers = [];
@@ -11,7 +11,7 @@ export const generateNumbersArray = (count, min, max) => {
 
 	Object.freeze(numbers);
 	return numbers;
-}
+};
 
 export const compareArrays = (arr1, arr2) => {
 	if (arr1.length !== arr2.length) return false;
@@ -24,4 +24,4 @@ export const compareArrays = (arr1, arr2) => {
 	}
 
 	return true;
-}
+};

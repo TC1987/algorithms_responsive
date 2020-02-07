@@ -78,11 +78,13 @@ export default ({ sidebarOpen, setSidebarOpen }) => {
 		const arrayBars = document.getElementsByClassName('arrayBar');
 		for (let i = 0; i < arrayBars.length; i++) {
 			arrayBars[i].style.height = `${numbersArray[i]}px`;
+			arrayBars[i].style.backgroundColor = '#c9d33e';
 		}
 	};
 
 	const newNumbers = () => {
 		const numbers = generateNumbersArray(barCount, minHeight, maxHeight);
+		resetNumbers();
 		setNumbersArray(numbers);
 	};
 
