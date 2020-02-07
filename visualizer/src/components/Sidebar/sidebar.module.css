@@ -1,6 +1,6 @@
 .sidebar {
 	width: 220px;
-	background-color: #ccc;
+	background-color: #2d3037;
 	transform: translateX(-100%);
 	transition: all .1s ease-in;
 	padding: 1.5em 0;
@@ -10,6 +10,7 @@
 	height: 100%;
 	text-transform: uppercase;
 	letter-spacing: 1.5px;
+	color: #f5f6f7;
 }
 
 .sidebar.isOpen {
@@ -37,7 +38,7 @@
 }
 
 .list li:not(.bold):not(.line):hover {
-	background-color: #aaa;
+	background-color: #21232b;
 }
 
 .bold {

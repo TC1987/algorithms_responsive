@@ -3,9 +3,10 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	background-color: #eee;
+	background-color: #21232b;
 	padding: 0 2em;
 	position: relative;
+	color: #f5f6f7;
 }
 
 .title {

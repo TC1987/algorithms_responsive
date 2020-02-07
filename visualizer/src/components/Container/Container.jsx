@@ -7,12 +7,12 @@ import styles from './container.module.css';
 import { generateNumbersArray } from '../../utils/array_helpers';
 import algorithms from '../../algorithms';
 
-export const processAnimations = (animations, PRIMARY, SECONDARY, SPEED) => {
+export const processAnimations = (animations, PRIMARY, SECONDARY, SPEED, setRunning) => {
 	const arrayBars = document.getElementsByClassName('arrayBar');
 
 	for (let i = 0; i < animations.length; i++) {
-		const [data, action] = animations[i];
-		const [barOneIndex, barTwoIndex] = data;
+		const [ data, action ] = animations[i];
+		const [ barOneIndex, barTwoIndex ] = data;
 		const barOneStyles = arrayBars[barOneIndex].style;
 		const barTwoStyles = barTwoIndex >= 0 ? arrayBars[barTwoIndex].style : null;
 
@@ -54,40 +54,44 @@ export const processAnimations = (animations, PRIMARY, SECONDARY, SPEED) => {
 				break;
 		}
 	}
-}
+
+	setRunning(false);
+};
 
 export default ({ sidebarOpen, setSidebarOpen }) => {
-	const [algorithm, setAlgorithm] = useState('');
-	const [speed, setSpeed] = useState(5);
-	const [barCount, setBarCount] = useState(100);
-	const [minHeight, setMinHeight] = useState(5);
-	const [maxHeight, setMaxHeight] = useState(400);
-	const [running, setRunning] = useState(false);
-	const [numbersArray, setNumbersArray] = useState([]);
+	const [ algorithm, setAlgorithm ] = useState('');
+	const [ speed, setSpeed ] = useState(5);
+	const [ barCount, setBarCount ] = useState(100);
+	const [ minHeight, setMinHeight ] = useState(5);
+	const [ maxHeight, setMaxHeight ] = useState(400);
+	const [ running, setRunning ] = useState(false);
+	const [ numbersArray, setNumbersArray ] = useState([]);
 
 	const runAlgorithm = () => {
 		if (algorithm) {
-			const animations = algorithms[algorithm]([...numbersArray]);
-			processAnimations(animations, 'pink', 'red', speed);
+			const animations = algorithms[algorithm]([ ...numbersArray ]);
+			processAnimations(animations, '#3EC9D3', '#D3483E', speed, setRunning);
 		}
-		setRunning(false);
-	}
+	};
 
 	const resetNumbers = () => {
 		const arrayBars = document.getElementsByClassName('arrayBar');
 		for (let i = 0; i < arrayBars.length; i++) {
 			arrayBars[i].style.height = `${numbersArray[i]}px`;
 		}
-	}
+	};
 
 	const newNumbers = () => {
 		const numbers = generateNumbersArray(barCount, minHeight, maxHeight);
 		setNumbersArray(numbers);
-	}
+	};
 
-	useEffect(() => {
-		newNumbers();
-	}, [barCount, minHeight, maxHeight]);
+	useEffect(
+		() => {
+			newNumbers();
+		},
+		[ barCount, minHeight, maxHeight ]
+	);
 
 	return (
 		<div className={styles.innerContainer}>
@@ -112,5 +116,5 @@ export default ({ sidebarOpen, setSidebarOpen }) => {
 			/>
 			<Main numbersArray={numbersArray} />
 		</div>
-	)
-}
+	);
+};

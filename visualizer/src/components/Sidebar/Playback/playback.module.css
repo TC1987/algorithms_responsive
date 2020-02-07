@@ -1,9 +1,13 @@
 .start {
 	text-transform: uppercase;
-	font-weight: 700;
 }
 
 .active {
-	color: white;
-	background-color: #333;
+	color: #2d3037;
+	background-color: #c9d33e;
+	font-weight: 700;
+}
+
+.active:hover {
+	background-color: #c9d33e !important;
 }

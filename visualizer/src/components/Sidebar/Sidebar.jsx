@@ -6,7 +6,25 @@ import Settings from './Settings/Settings';
 import Playback from './Playback/Playback';
 
 // MAKE SOME OF THE STYLE PROPS GLOBAL (LOCAL?) SO WE DON'T NEED TO PASS INTO COMPONENTS.
-const Sidebar = ({ sidebarOpen, setSidebarOpen, speed, setSpeed, barCount, setBarCount, minHeight, setMinHeight, maxHeight, setMaxHeight, algorithm, setAlgorithm, runAlgorithm, newNumbers, resetNumbers, running, setRunning }) => {
+const Sidebar = ({
+	sidebarOpen,
+	setSidebarOpen,
+	speed,
+	setSpeed,
+	barCount,
+	setBarCount,
+	minHeight,
+	setMinHeight,
+	maxHeight,
+	setMaxHeight,
+	algorithm,
+	setAlgorithm,
+	runAlgorithm,
+	newNumbers,
+	resetNumbers,
+	running,
+	setRunning
+}) => {
 	return (
 		<div className={`${styles.sidebar} ${sidebarOpen ? styles.isOpen : ''}`}>
 			<ul className={styles.list}>
@@ -46,7 +64,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, speed, setSpeed, barCount, setBa
 				/>
 			</ul>
 		</div>
-	)
-}
+	);
+};
 
 export default Sidebar;
