@@ -17,9 +17,9 @@ These instructions will get a copy of the project up and running on your local m
 
 ### Prerequisites
 
-Only thing you need is Node. It comes with 'npm' which is used to install the project's dependencies and execute the 'start' script.
+Got Node? If so, you're golden! If not, grab it here [node.js](https://nodejs.org/en/download/). You'll need it for 'npm' which is used to install the project's dependencies and execute the 'start' script.
 
-## Running the tests
+## Running Tests
 
 Tests can be run with 'npm test'.
 
