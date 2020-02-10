@@ -1,5 +1,7 @@
 # SortingInAction
 
+<img width="1440" alt="visualizer" src="https://user-images.githubusercontent.com/23731295/74113402-b68b2900-4b58-11ea-9cc7-fec96f312ff4.png">
+
 Wonder what it looks like behind the scenes when some of your favorite sorting algorithms are shifting numbers around? Wonder no more! With SortingInAction, users can select from one of five algorithms, select how many numbers they want to sort, change the sorting speed, and more! Instead of just saying that bubble sort is no bueno, actually see why!
 
 ## Getting Started
